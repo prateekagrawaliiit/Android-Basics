@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calculateTip() {
-        val amount: Double? = ((binding.costOfService.text).toString()).toDoubleOrNull()
+        val amount: Double? = ((binding.textField.text).toString()).toDoubleOrNull()
 
         if (amount == null) {
             binding.tipResult.text = ""
