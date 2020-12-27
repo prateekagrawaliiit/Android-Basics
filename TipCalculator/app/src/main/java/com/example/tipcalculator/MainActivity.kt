@@ -1,13 +1,14 @@
 package com.example.tipcalculator
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatActivity
 import com.example.tipcalculator.databinding.ActivityMainBinding
 import java.text.NumberFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,8 +45,8 @@ class MainActivity : AppCompatActivity() {
         if (roundUp) {
             tip = kotlin.math.ceil(tip)
         }
-
-        val final_tip = NumberFormat.getCurrencyInstance().format(tip)
+        val defaultFormat = NumberFormat.getCurrencyInstance(Locale("en", "IN"))
+        val final_tip = defaultFormat.format(tip)
 
         binding.tipResult.text = getString(R.string.tip_amount, final_tip)
 
